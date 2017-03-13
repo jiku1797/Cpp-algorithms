@@ -180,6 +180,34 @@ vector<int> bubbleSortAscending(vector<int> intVector){
     return intVector;
 }
 
+// Binary search algorithm that applies to integer vectors
+// sorted in ascending order.
+int binarySearch(vector<int> vec, const int num){
+    int length = (int)vec.size();
+    int lowIndex = 0;
+    int midIndex = length / 2;
+    int highIndex = length-1;
+    int midVal;
+    
+    while(lowIndex < highIndex){
+        midVal = vec[midIndex];
+        if(num < midVal){
+            highIndex = midIndex-1;
+            midIndex -= (highIndex + 1 - lowIndex) / 2;
+        }
+        else if(num > midVal){
+            lowIndex = midIndex+1;
+            midIndex += (highIndex + 1 - lowIndex) / 2;
+        }
+        
+        if(num == midVal) return midIndex;
+        
+        
+    }
+    cout << "Value not found!" << endl;
+    return -1;
+}
+
 int main(int argc, const char * argv[]) {
     
     return 0;
