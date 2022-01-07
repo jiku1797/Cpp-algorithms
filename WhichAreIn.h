@@ -20,9 +20,9 @@ std::vector<std::string> WhichAreIn::inArray(const std::vector<std::string> &arr
 {
   std::vector<std::string> res;
 
-  std::copy_if(std::begin(array1), std::end(array1), std::back_inserter(res), [&array2](const std::string str1)
+  std::copy_if(std::begin(array1), std::end(array1), std::back_inserter(res), [&array2](const std::string& str1)
     {
-      return std::any_of(std::begin(array2), std::end(array2), [&str1](const std::string str2)
+      return std::any_of(std::begin(array2), std::end(array2), [&str1](const std::string& str2)
       {
         return (str2.find(str1) != std::string::npos);
       });
